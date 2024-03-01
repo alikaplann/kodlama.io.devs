@@ -25,16 +25,17 @@ public SoftwareLanguageServiceImpl(SoftwareLanguageRepository softwareLanguageRe
 //sdlkaşljfdd
     @Override
     public void add(SoftwareLanguages language) throws Exception {
-        List<SoftwareLanguages>existingLanguage;
-        existingLanguage=softwareLanguageRepository.getAll();
-        for (SoftwareLanguages forLanguage:existingLanguage){
-            if(forLanguage.getName().equalsIgnoreCase(language.getName())){
-                throw new Exception(" Lütfen sistemde mevcut olmayan bir dil giriniz !!! ");
+        List<SoftwareLanguages>temp;
+        temp=softwareLanguageRepository.getAll();
+        for (SoftwareLanguages warelang:temp){
+            if(warelang.getName().equalsIgnoreCase(language.getName())){
+                throw new Exception(" Please enter a new Software language !");
             }
-            if (language.getName().isEmpty())  throw new Exception(" Lütfen programlama dili giriniz !!! ");
+            if (language.getName().isEmpty())  throw new Exception(" Software language cannot be null !");
         }
         softwareLanguageRepository.add(language);
     }
+
 
      @Override
     public void delete(int id) {
@@ -42,7 +43,7 @@ public SoftwareLanguageServiceImpl(SoftwareLanguageRepository softwareLanguageRe
     }
 
     @Override
-    public void update(SoftwareLanguages language) {
-    softwareLanguageRepository.update(language);
+    public void update(SoftwareLanguages softwareLanguages1,SoftwareLanguages softwareLanguages) {
+    softwareLanguageRepository.update(softwareLanguages1,softwareLanguages);
     }
 }

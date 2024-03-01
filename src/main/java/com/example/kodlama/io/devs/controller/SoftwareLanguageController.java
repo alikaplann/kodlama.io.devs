@@ -35,7 +35,7 @@ public class SoftwareLanguageController {
        softwareLanguageService.delete(id);
     }
     @PostMapping("/update")
-    public void update(@RequestBody SoftwareLanguages softwareLanguages){
-        softwareLanguageService.update(softwareLanguages);
+    public void update(@RequestBody SoftwareLanguages softwareLanguages1,SoftwareLanguages softwareLanguages){
+        softwareLanguageService.update(softwareLanguages1,softwareLanguages);
     }
 }

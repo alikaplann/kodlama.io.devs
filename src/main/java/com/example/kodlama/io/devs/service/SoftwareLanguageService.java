@@ -13,5 +13,5 @@ public interface SoftwareLanguageService {
 
     void delete(int id);
 
-    void update(SoftwareLanguages language);
+    void update(SoftwareLanguages softwareLanguages1,SoftwareLanguages softwareLanguages);
 }

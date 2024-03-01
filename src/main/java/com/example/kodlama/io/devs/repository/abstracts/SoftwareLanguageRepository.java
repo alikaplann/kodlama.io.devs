@@ -14,5 +14,5 @@ public interface SoftwareLanguageRepository {
 
     void delete(int id);
 
-    void update(SoftwareLanguages softwareLanguages);
+    void update(SoftwareLanguages softwareLanguages1,SoftwareLanguages softwareLanguages);
 }

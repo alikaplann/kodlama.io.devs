@@ -9,13 +9,14 @@ import java.util.List;
 @Repository
 public class SoftwareLanguagesRepositoryImpl implements SoftwareLanguageRepository {
 
-    List<SoftwareLanguages> softwareLanguage;
+    List<SoftwareLanguages> softwareLanguage = new ArrayList<>();
 
-    public SoftwareLanguagesRepositoryImpl () {
+    public SoftwareLanguagesRepositoryImpl() {
         softwareLanguage = new ArrayList<SoftwareLanguages>();
-        softwareLanguage.add(new SoftwareLanguages(1,"C#"));
-        softwareLanguage.add(new SoftwareLanguages(2,"Java"));
-        softwareLanguage.add(new SoftwareLanguages(3,"Python"));
+        softwareLanguage.add(new SoftwareLanguages(1, "C#"));
+        softwareLanguage.add(new SoftwareLanguages(2, "Java"));
+        softwareLanguage.add(new SoftwareLanguages(3, "Python"));
+
     }
 
     @Override
@@ -42,11 +43,10 @@ public class SoftwareLanguagesRepositoryImpl implements SoftwareLanguageReposito
     }
 
     @Override
-    public void update(SoftwareLanguages softwareLanguages) {
-        SoftwareLanguages softwareLanguages1= new SoftwareLanguages();
-        softwareLanguages1.setId(softwareLanguages.getId());
-        softwareLanguages1.setName(softwareLanguages.getName());
-
-
+    public void update(SoftwareLanguages softwareLanguages1, SoftwareLanguages softwareLanguages) {
+        int index = softwareLanguage.indexOf(getById(softwareLanguages1.getId()));
+        if (index != -1) {
+            softwareLanguage.set(index, softwareLanguages);
+        }
     }
 }
